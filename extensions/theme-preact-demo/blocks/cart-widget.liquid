@@ -1,0 +1,305 @@
+{% if cart.item_count > 0 %}
+  {% render 'styles-cart-widget', block: block %}
+
+  {%- liquid
+    render 'vite-tag' with 'theme.css', preload_stylesheet: true
+    render 'vite-tag' with 'theme.ts'
+  -%}
+  {% comment %}
+    Initialize app settings with demo data
+  {% endcomment %}
+  {% liquid
+    assign location_metaobjects = '[]'
+    assign app_settings_json = '{"demoMode": true, "fixedCartWidgetCountry": "US", "fixedCartWidgetProvince": "CA"}'
+    assign fixed_country = "US"
+    assign fixed_province = "CA"
+    assign block_settings = block.settings
+  %}
+  {% comment %}
+    Generate demo countries JSON
+  {% endcomment %}
+  {% capture countries_json %}
+    [
+      {
+        "value": "US",
+        "label": "United States",
+        "provinces": [
+          ["CA", "California"],
+          ["NY", "New York"],
+          ["TX", "Texas"],
+          ["FL", "Florida"]
+        ]
+      },
+      {
+        "value": "CA",
+        "label": "Canada",
+        "provinces": [
+          ["ON", "Ontario"],
+          ["BC", "British Columbia"],
+          ["QC", "Quebec"]
+        ]
+      }
+    ]
+  {% endcapture %}
+
+  <theme-preact-demo-cart-widget
+    id='cart-widget-{{ block.id }}'
+    class='cart-widget cart-widget-reset'
+    app-settings='{{ app_settings_json | json | escape }}'
+    block-settings='{{ block_settings | json | escape }}'
+    countries='{{ countries_json | escape }}'
+    locations='{{ location_metaobjects | json }}'
+  ></theme-preact-demo-cart-widget>
+{% elsif request.design_mode %}
+  <p>{{ 'cart-widget.warning.no_cart_items' | t }}</p>
+  <p>{{ 'general.warning.editor_safe_disclaimer' | t }}</p>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cart Widget Demo",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Delivery Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery_verifier",
+      "label": "Show delivery verifier",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_estimated_delivery_calculator",
+      "label": "Show estimated delivery calculator",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_timezone_message",
+      "label": "Show timezone message",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "date_time_pickers",
+      "label": "Date and time pickers",
+      "default": "both",
+      "options": [
+        {
+          "value": "both",
+          "label": "Both"
+        },
+        {
+          "value": "date",
+          "label": "Date"
+        },
+        {
+          "value": "time",
+          "label": "Time"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "delivery_message",
+      "label": "Delivery message",
+      "default": "<p>Please ensure someone is available to receive your order.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery_message",
+      "label": "Show delivery message",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "delivery_start_time",
+      "label": "Delivery & Pickup Start Time",
+      "info": "Earliest possible delivery time in a day",
+      "default": "8",
+      "options": [
+        { "value": "1", "label": "1 AM" },
+        { "value": "2", "label": "2 AM" },
+        { "value": "3", "label": "3 AM" },
+        { "value": "4", "label": "4 AM" },
+        { "value": "5", "label": "5 AM" },
+        { "value": "6", "label": "6 AM" },
+        { "value": "7", "label": "7 AM" },
+        { "value": "8", "label": "8 AM" },
+        { "value": "9", "label": "9 AM" },
+        { "value": "10", "label": "10 AM" },
+        { "value": "11", "label": "11 AM" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "delivery_cutoff_time",
+      "label": "Delivery & Pickup Cut-Off Time",
+      "info": "Latest possible delivery time in a day",
+      "default": "18",
+      "options": [
+        { "value": "13", "label": "1 PM" },
+        { "value": "14", "label": "2 PM" },
+        { "value": "15", "label": "3 PM" },
+        { "value": "16", "label": "4 PM" },
+        { "value": "17", "label": "5 PM" },
+        { "value": "18", "label": "6 PM" },
+        { "value": "19", "label": "7 PM" },
+        { "value": "20", "label": "8 PM" },
+        { "value": "21", "label": "9 PM" },
+        { "value": "22", "label": "10 PM" },
+        { "value": "23", "label": "11 PM" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "delivery_location_prefix",
+      "label": "Delivery Time Prefix"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pickup_options",
+      "label": "Show pickup options",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Corner Radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "outline_button",
+      "label": "Use outline button style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Input fields"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "input_bg_color",
+      "label": "Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Border",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "input_radius",
+      "label": "Corner Radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 0,
+      "max": 1920,
+      "step": 20,
+      "unit": "px",
+      "default": 0,
+      "info": "Disabled if set to 0"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,140 @@
+.container {
+  --general-spacing: 16px;
+
+  display: block;
+  color: var(--text-color);
+  padding: var(--vertical-padding) var(--horizontal-padding);
+  background-color: var(--bg-color);
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.nav-list {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.nav-item.active {
+  box-shadow: 0 1px 0 0 black;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--general-spacing);
+  margin-top: var(--general-spacing);
+}
+
+.nu-form__fields {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nu-fields-container {
+  flex: 1;
+}
+
+.nu-country-province {
+  --gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.nu-country-province > * {
+  --min-width: 160px;
+  flex: 1 1 max(calc(50% - var(--gap)), var(--min-width)); /* Attempt to fit 2 items in a row, but don't shrink below min-width */
+}
+
+.nu-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--general-spacing);
+}
+
+.nu-zipcode__fields {
+  display: flex;
+  gap: 8px;
+}
+
+.nu-times {
+  --gap: var(--general-spacing);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.nu-times > * {
+  flex: 1 1 calc(50% - var(--gap));
+}
+
+.nu-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--general-spacing);
+}
+
+.nu-delivery-instructions {
+  --gap: var(--general-spacing);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
+  container-type: inline-size;
+  container-name: delivery-instructions;
+}
+
+.nu-delivery-instructions > * {
+  flex: 1 1 calc(50% - var(--gap));
+}
+
+.nu-delivery-instructions > .nu-select--location {
+  flex-grow: 0;
+}
+
+@container delivery-instructions (max-width: 410px) {
+  .nu-select--location {
+    flex: 1 1 100%;
+  }
+}
+
+.nu-form__recap-container {
+  display: flex;
+  justify-content: end;
+  margin-top: var(--general-spacing);
+}
+
+.nu-form__recap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--general-spacing);
+}
+
+.nu-recap__estimated {
+  display: flex;
+  align-items: center;
+  gap: var(--general-spacing);
+}
+
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}

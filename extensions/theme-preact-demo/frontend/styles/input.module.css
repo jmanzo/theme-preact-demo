@@ -1,0 +1,101 @@
+.nu-input-container {
+  --radious: var(--input-radius, 0px);
+  --text-color: var(--input-text-color, #000);
+  --text-subdued-color: color(from var(--text-color) srgb r g b / 0.6);
+  --bg-color: var(--input-bg-color, transparent);
+
+  --border-color-action: var(--input-border-color, #000);
+  --border-color-idle: color(from var(--border-color-action) srgb r g b / 0.6);
+
+  --input-top-padding: 22px;
+  --input-inline-padding: 20px;
+  --input-bottom-padding: 8px;
+  --outline-width: 2px;
+
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  border: 1px solid;
+  border-radius: var(--radious);
+  outline-color: var(--border-color-idle);
+  border-color: var(--border-color-idle);
+  outline-width: var(--outline-width);
+  outline-offset: calc(var(--outline-width) * -1);
+}
+
+.nu-input-container:not(:has(.nu-input__field:disabled)):hover,
+.nu-input-container:focus-within {
+  outline-style: solid;
+  border-color: transparent;
+}
+
+.nu-input-container:focus-within {
+  outline-color: var(--border-color-action);
+}
+
+.nu-input-container:has(.nu-input__field:disabled),
+.nu-loading .nu-input-container {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.nu-input__field {
+  flex-grow: 1;
+  text-align: left;
+  color: inherit;
+  /* Add in the reset? */
+  border: unset;
+  outline: unset;
+  box-shadow: none;
+  background: none;
+
+  padding: var(--input-top-padding) var(--input-inline-padding) var(--input-bottom-padding);
+}
+
+.nu-input__field[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.nu-input__field[type='date'] {
+  cursor: text;
+}
+
+.nu-input-container:has(.nu-input__label) .nu-input__field::placeholder {
+  opacity: 0;
+}
+
+.nu-input__label {
+  position: absolute;
+  left: var(--input-inline-padding);
+  top: 50%;
+  transform: translateY(-50%);
+
+  line-height: 1;
+  font-size: 16px;
+  color: var(--text-subdued-color);
+  pointer-events: none;
+  transition: all 0.1s ease;
+}
+
+.nu-input-container:focus-within .nu-input__label,
+.nu-input-container .nu-input__field:not(:placeholder-shown) + .nu-input__label {
+  font-size: 10px;
+
+  top: 6px; /* TODO - improve, 6px magic number? */
+  transform: unset;
+}
+
+.nu-input-container > :is(button, .nu-input__icon) {
+  display: grid;
+  place-items: center;
+  padding-inline: 12px;
+}
+
+.nu-input__icon {
+  cursor: default;
+  user-select: none;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "theme-preact-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Preact + Volt + TypeScript theme app extension demo",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc && vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.1",
+    "@types/preact-custom-element": "^4.0.4",
+    "typescript": "^5.3.3",
+    "vite": "^6.3.2",
+    "vite-plugin-shopify": "^4.0.1"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.0.2",
+    "air-datepicker": "^3.6.0",
+    "preact": "^10.26.4",
+    "preact-custom-element": "^4.2.1"
+  }
+}

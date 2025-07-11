@@ -1,0 +1,180 @@
+/* Button Component Styles */
+.demo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.demo-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.demo-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Button Variants */
+.demo-button--primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.demo-button--primary:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.demo-button--secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.demo-button--secondary:hover:not(:disabled) {
+  background-color: #4b5563;
+}
+
+.demo-button--outlined {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.demo-button--outlined:hover:not(:disabled) {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.demo-button--text {
+  background-color: transparent;
+  color: #3b82f6;
+  padding: 0.25rem 0.5rem;
+}
+
+.demo-button--text:hover:not(:disabled) {
+  background-color: #eff6ff;
+}
+
+.demo-button--icon {
+  background-color: transparent;
+  color: #6b7280;
+  padding: 0.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.demo-button--icon:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Button Sizes */
+.demo-button--small {
+  min-height: 2rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.demo-button--medium {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.demo-button--large {
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* Icon-only button */
+.demo-button--icon-only {
+  padding: 0.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.demo-button--icon-only.demo-button--small {
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.375rem;
+}
+
+.demo-button--icon-only.demo-button--large {
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0.75rem;
+}
+
+/* Button Content */
+.demo-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Button Icons */
+.demo-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demo-button__icon--left {
+  order: -1;
+}
+
+.demo-button__icon--right {
+  order: 1;
+}
+
+/* Loading State */
+.demo-button.demo-loading .demo-button__content {
+  opacity: 0;
+}
+
+.demo-button__loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .demo-button {
+    min-height: 2.25rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .demo-button--large {
+    min-height: 2.75rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}

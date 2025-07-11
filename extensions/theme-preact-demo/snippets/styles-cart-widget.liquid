@@ -1,0 +1,31 @@
+{% comment %}
+  Renders dynamic styles for tthe cart widget block depending on the settings.
+
+  Accepts:
+  - block: {Object} cart-widget block object from cart-widget.liquid
+
+  Usage:
+  {% render 'cart-widget-styles', block: block %}
+{% endcomment %}
+
+<style data-shopify>
+  {{ block.settings.heading_font | font_face }}
+  {{ block.settings.body_font | font_face }}
+
+  #nu-{{ block.id }} {
+    --heading-font: {{ block.settings.heading_font }};
+    --body-font: {{ block.settings.body_font }};
+    --text-color: {{ block.settings.text_color | color_to_rgb }};
+    --bg-color: {{ block.settings.bg_color | color_to_rgb }};
+    --button-text-color: {{ block.settings.button_text_color | color_to_rgb }};
+    --button-bg-color: {{ block.settings.button_bg_color | color_to_rgb }};
+    --button-radius: {{ block.settings.button_radius }}px;
+    --input-text-color: {{ block.settings.input_text_color | color_to_rgb }};
+    --input-bg-color: {{ block.settings.input_bg_color | color_to_rgb }};
+    --input-border-color: {{ block.settings.input_border_color | color_to_rgb }};
+    --input-radius: {{ block.settings.input_radius }}px;
+    --vertical-padding: {{ block.settings.vertical_padding }}px;
+    --horizontal-padding: {{ block.settings.horizontal_padding }}px;
+    --max-width: {% if block.settings.max_width > 0 %}{{ block.settings.max_width }}px{% else %}100%{% endif %};
+  }
+</style>

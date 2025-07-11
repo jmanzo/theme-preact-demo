@@ -1,0 +1,87 @@
+/* Custom styles for Nuflorist theme */
+.nu-datepicker {
+  border-radius: 8px;
+  font-family: var(--font-body-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif);
+}
+
+.nu-datepicker .air-datepicker-nav {
+  border-bottom: none;
+  padding: 0;
+}
+
+.nu-datepicker .air-datepicker-cell.-day-.-other-month- {
+  opacity: 0.5;
+}
+
+.nu-datepicker .air-datepicker-cell.-day-.-disabled- {
+  color: #dedede;
+  cursor: not-allowed;
+}
+
+.nu-datepicker .air-datepicker-cell.-current-.-min-date-:not(.-disabled-) {
+  color: var(--color-primary, #000);
+}
+
+.nu-datepicker .air-datepicker-cell.-selected-,
+.nu-datepicker .air-datepicker-cell.-selected-.-current-,
+.nu-datepicker .air-datepicker-cell.-current-:not(.-min-date-) {
+  background-color: var(--color-primary, #000);
+  color: var(--color-primary-contrast, #fff);
+  border-radius: 8px;
+}
+
+.nu-datepicker .air-datepicker-cell.-focus- {
+  border-radius: 8px;
+}
+
+.nu-datepicker .air-datepicker-cell.-selected-.-focus- {
+  background-color: var(--color-primary-darken, #000);
+}
+
+.nu-datepicker .air-datepicker-buttons {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.nu-datepicker .air-datepicker-button {
+  color: var(--color-primary, #000);
+  font-weight: 500;
+}
+
+.nu-datepicker .air-datepicker-body--day-names {
+  padding: 0;
+  margin: 0;
+}
+
+.nu-datepicker .air-datepicker-body--day-name {
+  color: var(--color-primary, #000);
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.nu-datepicker .nu-input-container input {
+  cursor: pointer;
+}
+
+/* Add a small calendar icon to date inputs */
+.nu-datepicker .nu-input-container[data-name="date"],
+.nu-datepicker .nu-input-container[data-name="pickupDate"] {
+  position: relative;
+}
+
+.nu-datepicker .nu-input-container[data-name="date"]::after,
+.nu-datepicker .nu-input-container[data-name="pickupDate"]::after {
+  content: '\1F4C5'; /* Calendar emoji */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.nu-datepicker .air-datepicker--buttons {
+  display: none;
+}

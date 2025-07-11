@@ -1,0 +1,130 @@
+{
+  "title": "Make your gift more special",
+  "sections": {
+    "main_product": {
+      "quantity": {
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}",
+        "input_label": "Quantity for {{ product }}",
+        "label": "Quantity"
+      }
+    },
+    "recipient_name": {
+      "label": "Recipient Name (optional)"
+    },
+    "recipient_phone": {
+      "label": "Recipient Phone Number (optional)"
+    },
+    "occasion": {
+      "label": "1. Select occasion:"
+    },
+    "message": {
+      "trigger_label": "2. Write a message:",
+      "overlay": {
+        "no_message_overlay": {
+          "label": "Ok, no message!"
+        }
+      },
+      "mesages_trigger": {
+        "label": "Pick a template message"
+      },
+      "textarea": {
+        "placeholder": {
+          "label": "Tip: Don't forget to sign your name!"
+        }
+      },
+      "checkbox": {
+        "no_message": {
+          "label": "I don't want to send a message"
+        }
+      },
+      "buttons": {
+        "save": {
+          "label": "Save message"
+        }
+      }
+    },
+    "addons": {
+      "label": "3. Select add-ons:",
+      "no_categories": "This occasion doesn't have any category added yet.",
+      "buttons": {
+        "queue": {
+          "label": "Queue for cart"
+        },
+        "unqueue": {
+          "label": "Unqueue"
+        },
+        "update_queue": {
+          "label": "Update"
+        }
+      },
+      "checkbox": {
+        "added": {
+          "label": "Added"
+        }
+      }
+    },
+    "buy_buttons": {
+      "product": {
+        "unavailable": "Unavailable",
+        "sold_out": "Sold out",
+        "add_to_cart": "Add to cart"
+      }
+    }
+  },
+  // TODO 👆🏻 Refactor the above to organize inside the respective block category
+  "general": {
+    "warning": {
+      "editor_safe_disclaimer": "⚠️ Warnings only shows in the editor, it will not be visible in the live store."
+    }
+  },
+  "product-widget": {
+    "warning": {
+      "no_main_product": "⚠️ The Product Widget requires a product selection. Choose one to start customizing."
+    }
+  },
+  "cart-widget": {
+    "header": {
+      "delivery_tab_text": "Delivery",
+      "pickup_tab_text": "Pickup in Store"
+    },
+    "form": {
+      "pickup_label": "Pickup in Store",
+      "pickup_time_heading": "Select pickup time",
+      "pickup_time_label": "Pickup time",
+      "pickup_date_label": "Pickup date",
+      "country_label": "Country",
+      "province_label": "State/Province",
+      "zipcode_label": "Zip Code",
+      "verify_delivery": "Check",
+      "delivery_available": "Products available for delivery",
+      "delivery_unavailable": "Products not available for delivery",
+      "delivery_date_label": "Delivery date",
+      "delivery_time_label": "Delivery time by",
+      "anytime_delivery_option": "On Delivery Date (Anytime)",
+      "anytime_pickup_option": "On Pickup Date (Anytime)",
+      "timezone_message": "Time is based on the store's timezone",
+      "delivery_availability_heading": "Delivery availability",
+      "date_and_time_heading": "Date and time",
+      "delivery_instructions_heading": "Delivery instructions",
+      "delivery_location_label": "Delivery location",
+      "delivery_instructions_label": "Delivery instructions",
+      "calculate_shipping": "Calculate",
+      "checkout": "Checkout",
+      "pickup_customer_heading": "Pickup customer details",
+      "first_name_label": "First Name",
+      "last_name_label": "Last Name",
+      "phone_label": "Phone Number"
+    },
+    "recap": {
+      "free_shipping": "You apply for free shipping",
+      "error_fetching": "We're having trouble getting rates, please try again.",
+      "estimated_fee": "Estimated delivery fee",
+      "no_rates_found": "No shipping rates found, verify in checkout.",
+      "click_to_estimate": "Click to estimate shipping"
+    },
+    "warning": {
+      "no_cart_items": "⚠️ The Cart Widget requires at least one product in the cart to be shown."
+    }
+  }
+}

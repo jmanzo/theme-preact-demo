@@ -1,0 +1,83 @@
+/* Box sizing rules */
+.nu-reset :where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+.nu-reset :where(*) {
+  margin: 0;
+}
+
+/* Avoid text overflows */
+.nu-reset :where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* Inherit fonts for inputs and buttons */
+.nu-reset :where(input, button, textarea, select) {
+  font: inherit;
+}
+
+/* Remove default padding on labels on fieldsets - https://thatemil.com/blog/2015/01/03/reset-your-fieldset/ */
+.nu-reset :where(legend) {
+  padding: 0;
+  display: table;
+}
+
+/* Remove default styles on fieldset - https://thatemil.com/blog/2015/01/03/reset-your-fieldset/ */
+.nu-reset :where(fieldset) {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+.nu-reset :where(h1, h2, h3, h4, button, input, label) {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+.nu-reset :where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+.nu-reset :where(ul[role='list'], ol[role='list']) {
+  padding: 0;
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+.nu-reset :where(a:not([class])) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+.nu-reset :where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove default button styles */
+.nu-reset :where(button) {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Make sure textareas withouth rows have a minimum height */
+.nu-reset :where(textarea:not([rows])) {
+  min-height: 6em;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  .nu-reset :where(*, *::before, *::after) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

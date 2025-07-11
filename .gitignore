@@ -1,0 +1,30 @@
+# From the Shopify Remix App template
+/.cache
+/build
+# Ignore shopify files created during app dev
+.shopify/*
+.shopify.lock
+# Ignore cursor files created during app dev
+.cursor
+.cursor/*
+.cursor.lock
+.cursorrules*
+
+# Ours
+
+# NPM / Yarn
+node_modules
+yarn.lock
+
+# Environment variables
+.env
+.env.*
+
+# Ignore all shopify.app. files, to avoid accidentally deploying or modifying the LIVE app (and also commiting other random apps)
+shopify.app*.toml
+
+# Ignores for extensions
+/extensions/*/dist/
+
+# MacOS
+.DS_Store

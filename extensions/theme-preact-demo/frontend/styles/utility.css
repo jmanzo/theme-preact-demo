@@ -1,0 +1,48 @@
+/*
+-->                Display                <--
+=============================================
+*/
+.nu-hidden {
+  display: none !important;
+}
+
+.nu-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/*
+-->                 Text                  <--
+=============================================
+*/
+
+/* <-----|    Font Size    |-----> */
+.nu-font-10 {
+  font-size: 10px;
+}
+.nu-font-11 {
+  font-size: 11px;
+}
+.nu-font-12 {
+  font-size: 12px;
+}
+.nu-font-13 {
+  font-size: 13px;
+}
+.nu-font-14 {
+  font-size: 14px;
+}
+.nu-font-15 {
+  font-size: 15px;
+}
+.nu-font-16 {
+  font-size: 16px;
+}
+
+/* <-----|    Line Height   |-----> */
+.nu-line-height-1 {
+  line-height: 1;
+}
+.nu-line-height-1-1 {
+  line-height: 1.1;
+}

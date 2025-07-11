@@ -1,0 +1,80 @@
+.nu-select-container {
+  --radious: var(--input-radius, 0px);
+  --text-color: var(--input-text-color, #000);
+  --text-subdued-color: color(from var(--text-color) srgb r g b / 0.6);
+  --bg-color: var(--input-bg-color, transparent);
+  --border-color: var(--input-border-color, #000);
+
+  --border-color-action: var(--input-border-color, #000);
+  --border-color-idle: color(from var(--border-color-action) srgb r g b / 0.6);
+
+  --select-block-padding: 8px;
+  --select-left-padding: 20px;
+  --select-right-padding: 32px; /* Don't modify below 12px, so the chevron-down has space */
+  --outline-width: 2px;
+
+  width: 100%;
+  position: relative;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  border: 1px solid;
+  border-radius: var(--radious);
+  outline-color: var(--border-color-idle);
+  border-color: var(--border-color-idle);
+  outline-width: var(--outline-width);
+  outline-offset: calc(var(--outline-width) * -1);
+}
+
+.nu-select-container:not(:has(.nu-select__field:disabled)):hover,
+.nu-select-container:focus-within {
+  outline-style: solid;
+  border-color: transparent;
+}
+
+.nu-select-container:focus-within {
+  outline-color: var(--border-color-action);
+}
+
+.nu-select-container:has(.nu-select__field:disabled),
+.nu-loading .nu-select-container {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.nu-select__field {
+  height: 100%;
+  width: 100%;
+
+  appearance: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Add in the reset? */
+  color: inherit;
+  border: unset;
+  outline: unset;
+  box-shadow: none;
+  background: none;
+  cursor: pointer;
+
+  padding: var(--select-block-padding) var(--select-right-padding) var(--select-block-padding)
+    var(--select-left-padding);
+}
+
+.nu-select__field:has(option[value='']:checked) {
+  color: var(--text-subdued-color);
+}
+
+.nu-select__icon {
+  --svg-width: 14px;
+
+  width: var(--svg-width);
+  position: absolute;
+  /* The position is calculated to be centered vertically based on the right padding and the svg width, if the resulting value is less than 12px, it will be 12px (so it's not too close to the edge) */
+  right: max(12px, calc((var(--select-right-padding) - var(--svg-width)) / 2));
+  top: 50%;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
